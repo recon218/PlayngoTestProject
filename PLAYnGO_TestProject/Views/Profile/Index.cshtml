@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<link href="~/Content/jquery.dataTables.min.css" rel="stylesheet" />
+<script src="~/Scripts/jquery.dataTables.min.js"></script>
+
+<h2>Profile List</h2>
+
+<table id="tblProfile">
+    <thead>
+    <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Address</th>
+        <th>Contact Number</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in ViewBag.profilelist)
+    {
+        <tr>
+            <td>
+                @item.Firstname
+            </td>
+            <td>
+                @item.Lastname
+            </td>
+            <td>
+                @item.Address
+            </td>
+            <td>
+                @item.ContactNo
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+<script>
+    $(document).ready(function () {
+        $('#tblProfile').DataTable();
+    });
+</script>
